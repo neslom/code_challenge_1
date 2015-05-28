@@ -6,5 +6,6 @@
     <p>
       <%= @item.description %>
     </p>
+    <%= link_to "Order Item", orders_path(order: { user_id: 1 }), method: :post %>
   </div>
 </div>

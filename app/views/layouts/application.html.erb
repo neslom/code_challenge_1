@@ -8,6 +8,13 @@
   </head>
   <body>
     <%= render 'layouts/navbar' %>
+
+    <div class="messsages">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, id: "flash_#{name}" %>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
