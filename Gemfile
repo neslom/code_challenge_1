@@ -13,12 +13,15 @@ gem 'haml-rails'
 gem 'therubyracer'
 gem 'less-rails-bootstrap'
 gem 'mailcatcher'
+gem 'responders'
+gem 'selenium-webdriver'
 
 group :development do
   gem 'spring'
 end
 
 group :development, :test do
+  gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'pry', :require => 'pry'

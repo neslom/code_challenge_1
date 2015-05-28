@@ -1,0 +1,5 @@
+Favorites:<br>
+
+<% @favorites.each do |fav| %>
+  <%= Item.find_by(id: fav.item_id).name %><br>
+<% end %>
