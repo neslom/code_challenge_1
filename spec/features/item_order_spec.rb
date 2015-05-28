@@ -13,6 +13,7 @@ RSpec.describe "User Orders Item" do
     expect(page).to have_content("Order Success!")
     expect(current_path).to eq(order_path(order))
 
+    expect(page).to have_content("Order Details:")
     [item.name, item.description].each do |item|
       expect(page).to have_content(item)
     end

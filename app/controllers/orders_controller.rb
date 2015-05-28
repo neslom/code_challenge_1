@@ -8,19 +8,16 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new(order_params)
+    @order = Order.new(amount: params[:order][:amount], user_id: params[:order][:user_id])
+    item = Item.find_by(id: params[:order][:item_id])
+    @order.items << item
 
-    if order.save
+    if @order.save
       flash[:notice] = "Order Success!"
-      redirect_to order_path(order)
+      redirect_to order_path(@order)
     else
       redirect_to :back
     end
   end
 
-  private
-
-  def order_params
-    params.require(:order).permit(:amount, :user_id)
-  end
 end
