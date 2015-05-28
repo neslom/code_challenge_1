@@ -14,10 +14,10 @@ class OrdersController < ApplicationController
 
     if @order.save
       flash[:notice] = "Order Success!"
+      NotificationMailer.notify_admin(@order.id, params[:order][:user_id], item.id)
       redirect_to order_path(@order)
     else
       redirect_to :back
     end
   end
-
 end
